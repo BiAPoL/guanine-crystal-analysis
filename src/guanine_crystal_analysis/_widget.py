@@ -10,10 +10,10 @@ Replace code below according to your needs.
 # Uses the `autogenerate: true` flag in the plugin manifest
 # to indicate it should be wrapped as a magicgui to autogenerate
 # a widget.
-def normalization(input_image: "napari.types.ImageData")->"napari.types.ImageData":
+def normalization(input_image: "napari.types.ImageData", upper_percentile:int=99)->"napari.types.ImageData":
     import numpy as np
     
-    normalized_image = input_image/np.percentile(input_image,99)
+    normalized_image = input_image/np.percentile(input_image, upper_percentile)
     return normalized_image
 
 def segmentation(normalized_image: "napari.types.ImageData", 
