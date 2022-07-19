@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/biopo/guanine-crystal-analysis/branch/main/graph/badge.svg)](https://codecov.io/gh/biopo/guanine-crystal-analysis)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/guanine-crystal-analysis)](https://napari-hub.org/plugins/guanine-crystal-analysis)
 
-A plugin for the guanine crystal segmentation, classification and characterization ibin the zebrafish eye
+A plugin for the guanine crystal segmentation, classification and characterization in the zebrafish eye
 
 ----------------------------------
 

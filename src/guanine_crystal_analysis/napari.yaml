@@ -2,27 +2,26 @@ name: guanine-crystal-analysis
 display_name: Guanine Crystal Analysis
 contributions:
   commands:
-    - id: guanine-crystal-analysis.make_sample_data
-      python_name: guanine_crystal_analysis._sample_data:make_sample_data
-      title: Load sample data from Guanine Crystal Analysis
-    - id: guanine-crystal-analysis.make_qwidget
-      python_name: guanine_crystal_analysis._widget:ExampleQWidget
-      title: Make example QWidget
-    - id: guanine-crystal-analysis.make_magic_widget
-      python_name: guanine_crystal_analysis._widget:example_magic_widget
-      title: Make example magic widget
-    - id: guanine-crystal-analysis.make_func_widget
-      python_name: guanine_crystal_analysis._widget:example_function_widget
-      title: Make example function widget
+    - id: guanine-crystal-analysis.normalization
+      python_name: guanine_crystal_analysis._widget:normalization
+      title: normalization
+    - id: guanine-crystal-analysis.segmentation
+      python_name: guanine_crystal_analysis._widget:segmentation
+      title: segmentation
+    - id: guanine-crystal-analysis.analyze_image
+      python_name: guanine_crystal_analysis._widget:analyze_image
+      title: analyze_image
   sample_data:
     - command: guanine-crystal-analysis.make_sample_data
       display_name: Guanine Crystal Analysis
       key: unique_id.1
   widgets:
-    - command: guanine-crystal-analysis.make_qwidget
-      display_name: Example QWidget
-    - command: guanine-crystal-analysis.make_magic_widget
-      display_name: Example Magic Widget
-    - command: guanine-crystal-analysis.make_func_widget
+    - command: guanine-crystal-analysis.normalization
       autogenerate: true
-      display_name: Example Function Widget
+      display_name: Normalization 
+    - command: guanine-crystal-analysis.segmentation
+      autogenerate: true
+      display_name: Segmentation
+    - command: guanine-crystal-analysis.analyze_image
+      autogenerate: true
+      display_name: Analyze Image
