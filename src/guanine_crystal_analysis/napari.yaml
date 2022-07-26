@@ -11,6 +11,15 @@ contributions:
     - id: guanine-crystal-analysis.analyze_image
       python_name: guanine_crystal_analysis._widget:analyze_image
       title: analyze_image
+    - id: guanine-crystal-analysis.classify_objects
+      python_name: guanine_crystal_analysis._widget:classify_objects
+      title: classify_objects
+    - id: guanine-crystal-analysis.bad_label_exclusion
+      python_name: guanine_crystal_analysis._widget:bad_label_exclusion
+      title: bad_label_exclusion
+    - id: guanine-crystal-analysis.analyze_deluxe
+      python_name: guanine_crystal_analysis._widget:analyze_deluxe
+      title: analyze_deluxe
   sample_data:
     - command: guanine-crystal-analysis.make_sample_data
       display_name: Guanine Crystal Analysis
@@ -25,3 +34,12 @@ contributions:
     - command: guanine-crystal-analysis.analyze_image
       autogenerate: true
       display_name: Analyze Image
+    - command: guanine-crystal-analysis.classify_objects
+      autogenerate: true
+      display_name: Classify Objects
+    - command: guanine-crystal-analysis.bad_label_exclusion
+      autogenerate: true
+      display_name: Bad Label Exclusion
+    - command: guanine-crystal-analysis.analyze_deluxe
+      autogenerate: true
+      display_name: Analyze Deluxe
