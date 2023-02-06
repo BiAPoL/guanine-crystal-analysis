@@ -69,11 +69,16 @@ def classify_objects(label: "napari.types.LabelsData",
                      shape: bool = True, 
                      size: bool = True,
                     classifier_filename:str = "object_classifier_20220523_",
+                     table: "pandas.DataFrame" = None,
                     napari_viewer: "napari.Viewer" = None)-> "napari.types.LabelsData":
     from napari_workflows._workflow import _get_layer_from_data
     import pandas as pd
-    labels_layer = _get_layer_from_data(napari_viewer, label)
-    table = pd.DataFrame(labels_layer.properties)
+    
+    if napari_viewer is not None:
+        labels_layer = _get_layer_from_data(napari_viewer, label)
+        table = pd.DataFrame(labels_layer.properties)
+        
+            
     print("alle keys:", table.keys())
     print(type(table))
     keep = table[['label', 'aspect_ratio', 'max_intensity', 'min_intensity', 'perimeter_skimage', 'area', 'mean_intensity', 'major_axis_length', 'minor_axis_length', 'circularity', 'solidity', 'eccentricity', 'roundness_skimage', 'median', 'sum', 'variance', 'perimeter_on_border','perimeter_on_border_ratio']]
