@@ -183,6 +183,7 @@ def analyze_deluxe(input_image: "napari.types.ImageData",
                     shape: bool = True, 
                     size: bool = True,
                     classifier_filename:str = "object_classifier_20220523_",
+                   table: "pandas.DataFrame" = None,
                    napari_viewer: "napari.Viewer" = None):
     if normalize:
         image_maybe_normalized = normalization(input_image)
@@ -194,7 +195,7 @@ def analyze_deluxe(input_image: "napari.types.ImageData",
     napari_viewer.add_labels(segmentation_result)
     
     analyze_image(image_maybe_normalized, segmentation_result, napari_viewer)
-    classification_result = classify_objects(segmentation_result, intensity, shape, size, classifier_filename, napari_viewer)
+    classification_result = classify_objects(segmentation_result, intensity, shape, size, classifier_filename, table, napari_viewer)
     napari_viewer.add_labels(classification_result)
     
     exclusion_result = bad_label_exclusion(segmentation_result, classification_result)
