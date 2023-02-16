@@ -69,11 +69,16 @@ def classify_objects(label: "napari.types.LabelsData",
                      shape: bool = True, 
                      size: bool = True,
                     classifier_filename:str = "object_classifier_20220523_",
+                     table: "pandas.DataFrame" = None,
                     napari_viewer: "napari.Viewer" = None)-> "napari.types.LabelsData":
     from napari_workflows._workflow import _get_layer_from_data
     import pandas as pd
-    labels_layer = _get_layer_from_data(napari_viewer, label)
-    table = pd.DataFrame(labels_layer.properties)
+    
+    if napari_viewer is not None:
+        labels_layer = _get_layer_from_data(napari_viewer, label)
+        table = pd.DataFrame(labels_layer.properties)
+        
+            
     print("alle keys:", table.keys())
     print(type(table))
     keep = table[['label', 'aspect_ratio', 'max_intensity', 'min_intensity', 'perimeter_skimage', 'area', 'mean_intensity', 'major_axis_length', 'minor_axis_length', 'circularity', 'solidity', 'eccentricity', 'roundness_skimage', 'median', 'sum', 'variance', 'perimeter_on_border','perimeter_on_border_ratio']]
@@ -178,6 +183,7 @@ def analyze_deluxe(input_image: "napari.types.ImageData",
                     shape: bool = True, 
                     size: bool = True,
                     classifier_filename:str = "object_classifier_20220523_",
+                   table: "pandas.DataFrame" = None,
                    napari_viewer: "napari.Viewer" = None):
     if normalize:
         image_maybe_normalized = normalization(input_image)
@@ -189,7 +195,7 @@ def analyze_deluxe(input_image: "napari.types.ImageData",
     napari_viewer.add_labels(segmentation_result)
     
     analyze_image(image_maybe_normalized, segmentation_result, napari_viewer)
-    classification_result = classify_objects(segmentation_result, intensity, shape, size, classifier_filename, napari_viewer)
+    classification_result = classify_objects(segmentation_result, intensity, shape, size, classifier_filename, table, napari_viewer)
     napari_viewer.add_labels(classification_result)
     
     exclusion_result = bad_label_exclusion(segmentation_result, classification_result)
