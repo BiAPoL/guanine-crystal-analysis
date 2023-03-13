@@ -82,3 +82,56 @@ venv/
 
 # written by setuptools_scm
 **/_version.py
+demo/crops/2021-5-7_wt_72hpf_lysosensor_1.czi
+demo/crops/2022-8-19 et358 pnp4a gRNA 72hpf 1.czi
+demo/crops/Crop vs. CZI file.ipynb
+demo/delete/3. Merge individual images to stack.ipynb
+demo/imgs/1. mutant images/img2_20220520_mutant_56hpf_2.tif
+demo/imgs/1. mutant images/img3_l3_20220520_mutant_56hpf_3.tif
+demo/imgs/1. mutant images/img3_l5_20220520_mutant_56hpf_3.tif
+demo/imgs/1. mutant images/img4_l2_20220520_mutant_56hpf_4.tif
+demo/imgs/1. mutant images/img4_l4_20220520_mutant_56hpf_4.tif
+demo/imgs/1. mutant images/img5_l1_20220520_mutant_56hpf_5.tif
+demo/imgs/2. normalized images/img2_20220520_mutant_56hpf_2.tif
+demo/imgs/2. normalized images/img3_l3_20220520_mutant_56hpf_3.tif
+demo/imgs/2. normalized images/img3_l5_20220520_mutant_56hpf_3.tif
+demo/imgs/2. normalized images/img4_l2_20220520_mutant_56hpf_4.tif
+demo/imgs/2. normalized images/img4_l4_20220520_mutant_56hpf_4.tif
+demo/imgs/2. normalized images/img5_l1_20220520_mutant_56hpf_5.tif
+demo/imgs/3. segmentation labels/img2_20220520_mutant_56hpf_2.tif
+demo/imgs/3. segmentation labels/img3_l3_20220520_mutant_56hpf_3.tif
+demo/imgs/3. segmentation labels/img3_l5_20220520_mutant_56hpf_3.tif
+demo/imgs/3. segmentation labels/img4_l2_20220520_mutant_56hpf_4.tif
+demo/imgs/3. segmentation labels/img4_l4_20220520_mutant_56hpf_4.tif
+demo/imgs/3. segmentation labels/img5_l1_20220520_mutant_56hpf_5.tif
+demo/imgs/4. dataframes of segmentation labels/img2_20220520_mutant_56hpf_2.tif.csv
+demo/imgs/4. dataframes of segmentation labels/img3_l3_20220520_mutant_56hpf_3.tif.csv
+demo/imgs/4. dataframes of segmentation labels/img3_l5_20220520_mutant_56hpf_3.tif.csv
+demo/imgs/4. dataframes of segmentation labels/img4_l2_20220520_mutant_56hpf_4.tif.csv
+demo/imgs/4. dataframes of segmentation labels/img4_l4_20220520_mutant_56hpf_4.tif.csv
+demo/imgs/4. dataframes of segmentation labels/img5_l1_20220520_mutant_56hpf_5.tif.csv
+demo/imgs/5. classification labels/img2_20220520_mutant_56hpf_2.tif
+demo/imgs/5. classification labels/img3_l3_20220520_mutant_56hpf_3.tif
+demo/imgs/5. classification labels/img3_l5_20220520_mutant_56hpf_3.tif
+demo/imgs/5. classification labels/img4_l2_20220520_mutant_56hpf_4.tif
+demo/imgs/5. classification labels/img4_l4_20220520_mutant_56hpf_4.tif
+demo/imgs/5. classification labels/img5_l1_20220520_mutant_56hpf_5.tif
+demo/imgs/6. bad-label-excluded labels/img2_20220520_mutant_56hpf_2.tif
+demo/imgs/6. bad-label-excluded labels/img3_l3_20220520_mutant_56hpf_3.tif
+demo/imgs/6. bad-label-excluded labels/img3_l5_20220520_mutant_56hpf_3.tif
+demo/imgs/6. bad-label-excluded labels/img4_l2_20220520_mutant_56hpf_4.tif
+demo/imgs/6. bad-label-excluded labels/img4_l4_20220520_mutant_56hpf_4.tif
+demo/imgs/6. bad-label-excluded labels/img5_l1_20220520_mutant_56hpf_5.tif
+demo/imgs/7. dataframes of DL/img2_20220520_mutant_56hpf_2.tif.csv
+demo/imgs/7. dataframes of DL/img3_l3_20220520_mutant_56hpf_3.tif.csv
+demo/imgs/7. dataframes of DL/img3_l5_20220520_mutant_56hpf_3.tif.csv
+demo/imgs/7. dataframes of DL/img4_l2_20220520_mutant_56hpf_4.tif.csv
+demo/imgs/7. dataframes of DL/img4_l4_20220520_mutant_56hpf_4.tif.csv
+demo/imgs/7. dataframes of DL/img5_l1_20220520_mutant_56hpf_5.tif.csv
+demo/imgs/7. dataframes of PL/img2_20220520_mutant_56hpf_2.tif.csv
+demo/imgs/7. dataframes of PL/img3_l3_20220520_mutant_56hpf_3.tif.csv
+demo/imgs/7. dataframes of PL/img3_l5_20220520_mutant_56hpf_3.tif.csv
+demo/imgs/7. dataframes of PL/img4_l2_20220520_mutant_56hpf_4.tif.csv
+demo/imgs/7. dataframes of PL/img4_l4_20220520_mutant_56hpf_4.tif.csv
+demo/imgs/7. dataframes of PL/img5_l1_20220520_mutant_56hpf_5.tif.csv
+demo/imgs/df_PL.csv
