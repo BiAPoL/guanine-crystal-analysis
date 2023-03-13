@@ -82,3 +82,9 @@ venv/
 
 # written by setuptools_scm
 **/_version.py
+*.tif
+*.csv
+demo/crops/2021-5-7_wt_72hpf_lysosensor_1.czi
+demo/crops/2022-8-19 et358 pnp4a gRNA 72hpf 1.czi
+demo/crops/Crop vs. CZI file.ipynb
+demo/delete/3. Merge individual images to stack.ipynb
