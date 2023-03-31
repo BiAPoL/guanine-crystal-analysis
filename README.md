@@ -7,9 +7,7 @@
 [![codecov](https://codecov.io/gh/biopo/guanine-crystal-analysis/branch/main/graph/badge.svg)](https://codecov.io/gh/biopo/guanine-crystal-analysis)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/guanine-crystal-analysis)](https://napari-hub.org/plugins/guanine-crystal-analysis)
 
-A plugin for the guanine crystal segmentation, classification and characterization in the zebrafish eye
-
-----------------------------------
+A plugin for guanine crystal segmentation and classification in the zebrafish eye. More precisely, it provides a workflow that measures on guanine crystal labels and sorts out overlaying partially segmented crystals during classification.
 
 This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
 
@@ -20,6 +18,70 @@ https://github.com/napari/cookiecutter-napari-plugin#getting-started
 and review the napari docs for plugin developers:
 https://napari.org/plugins/index.html
 -->
+
+## Usage 
+
+This plugin is suited for users who
+- want to derive size-, shape and intensity-based parameters from individual guanine crystals
+- struggle with partially segmented or overlapping crystals
+- want to investigate further the size and shape of these guanine crystals
+
+This plugin is not suited for users who 
+- are interested in further investigations of intensity of guanine crystals
+
+You can find the plugin in napari under `Plugins` → `guanine-crystal-analysis`
+
+### 1. Normalization
+
+You can normalize the image selecting `Normalization` where you only need to specify your input image and click on the `Run` button. 
+
+![](img/plugin/normalization.png)
+
+Normalizing the image helps to adjust the intensity values and needs to be applied here because the object segmenter is only trained on normalized images.
+
+### 2. Segmentation
+
+When selecting `Segmentation`, you need to select the normalized image and a minimum pixel count of label images and click on the `Run` button again.
+![](img/plugin/segmentation.png)
+This avoids having too small and unhelpful labels and is set by default to 50 pixels.
+
+### 3. Analyze Image
+
+Under `Analyze Image`, you can derive measurements from your image and label image by selecting them and clicking on the `Run` button.  
+![](img/plugin/analyzeimage.png)
+The derived measurements are a combination of the two libraries [napari-skimage-regionprops](https://github.com/haesleinhuepf/napari-skimage-regionprops) and [napari-simpleitk-image-processing](https://github.com/haesleinhuepf/napari-simpleitk-image-processing). They can be devided into size-, shape-, and intensity-based parameters: 
+
+| **size** | **shape**                 | **intensity**  
+|----------|---------------------------|-------------------|
+| area     	| aspect ratio              	| maximum intensity 	|
+|          	| perimeter                 	| mean intensity    	|
+|          	| major-axis-length         	| minimum intensity 	|
+|          	| minor-axis-length         	| median            	|
+|          	| circularity               	| sum               	|
+|          	| solidity                  	| variance          	|
+|          	| eccentricity              	|                   	|
+|          	| roundness                 	|                   	|
+|          	| perimeter-on-border       	|                   	|
+|          	| perimeter-on-border-ratio 	|                   	|
+
+Some of the guanine crystals are not correctly segmented because of overlay or interference patterns. This problem is addressed with the help of a classification step demonstrated next
+
+### 4. Classify Objects
+
+You can divide the crystal labels into predicted (blue) and discarded (brown) crystal labels using `Classify Objects`. There you can choose classifiers trained on intensity-, shape- and/or size-based parameters with the help of the checkboxes.
+![](img/plugin/classifyobjects.png)
+It is recommended to later on not measure the parameters that the classifier was trained on, but other ones.
+
+### 5. Bad Label Exclusion
+
+Now, you can get rid of the discarded (brown) labels for further analysis using `Bad Label Exclusion`. Select the two label images of segmentation and classification result and press the `Run` button again. 
+![](img/plugin/badlabelexclusion.png)
+The result is a label image with only the predicted (blue) labels which are relabeled sequentially. If you want to derive measurements on these predicted labels, you can just use  `Analyze Image` again.
+
+### "Analyze Deluxe"
+
+You can also do all the explained steps in one click using the `Analyze Deluxe` function.
+![](img/plugin/analyzedeluxe.png)
 
 ## Installation
 
@@ -40,6 +102,7 @@ Contributions are very welcome. Tests can be run with [tox], please ensure
 the coverage at least stays the same before you submit a pull request.
 
 ## Acknowledgements
+This project was done in collaboration with the [Rita Mateus Laboratory](https://www.ritamateus.com/). The images shown in the documentation and in the demo jupyter notebooks were acquired there. 
 This project was supported by the Deutsche Forschungsgemeinschaft under Germany’s Excellence Strategy – EXC2068 - Cluster of Excellence "Physics of Life" of TU Dresden. 
 This project has been made possible in part by grant number [2021-240341 (Napari plugin accelerator grant)](https://chanzuckerberg.com/science/programs-resources/imaging/napari/improving-image-processing/) from the Chan Zuckerberg Initiative DAF, an advised fund of the Silicon Valley Community Foundation.
 
