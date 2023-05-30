@@ -31,6 +31,11 @@ This plugin is not suited for users who
 
 You can find the plugin in napari under `Plugins` → `guanine-crystal-analysis`
 
+### Image Input
+
+This plugin can be used on individual 2D slices of z-stacks as the workflow was developed on such input.
+Therefore, the quality of the result might differ on differing input, like crops or maximum projections.
+
 ### 1. Normalization
 
 You can normalize the image selecting `Normalization` where you only need to specify your input image and click on the `Run` button. 
@@ -43,16 +48,18 @@ Normalizing the image helps to adjust the intensity values and needs to be appli
 
 When selecting `Segmentation`, you need to select the normalized image and a minimum pixel count of label images and click on the `Run` button again.
 ![](img/plugin/segmentation.png)
-This avoids having too small and unhelpful labels and is set by default to 50 pixels.
+This avoids having too small and unhelpful labels and is set by default to 50 pixels. 
+For the training of the model, an [APOC](https://github.com/haesleinhuepf/apoc) pixel classifier was used.
 
 ### 3. Analyze Image
 
-Under `Analyze Image`, you can derive measurements from your image and label image by selecting them and clicking on the `Run` button.  
+Under `Analyze Image`, you can extract features from your image and label image by selecting them and clicking on the `Run` button.  
 ![](img/plugin/analyzeimage.png)
-The derived measurements are a combination of the two libraries [napari-skimage-regionprops](https://github.com/haesleinhuepf/napari-skimage-regionprops) and [napari-simpleitk-image-processing](https://github.com/haesleinhuepf/napari-simpleitk-image-processing). They can be devided into size-, shape-, and intensity-based parameters: 
+The extracted features are a combination of the two libraries [napari-skimage-regionprops](https://github.com/haesleinhuepf/napari-skimage-regionprops) and [napari-simpleitk-image-processing](https://github.com/haesleinhuepf/napari-simpleitk-image-processing). They can be devided into size-, shape-, and intensity-based parameters: 
 
 | **size** | **shape**                 | **intensity**  
 |----------|---------------------------|-------------------|
+|![](img/plugin/size.png)      	|![](img/plugin/shape.png)              	|![](img/plugin/intensity.png)  	|
 | area     	| aspect ratio              	| maximum intensity 	|
 |          	| perimeter                 	| mean intensity    	|
 |          	| major-axis-length         	| minimum intensity 	|
@@ -64,12 +71,14 @@ The derived measurements are a combination of the two libraries [napari-skimage-
 |          	| perimeter-on-border       	|                   	|
 |          	| perimeter-on-border-ratio 	|                   	|
 
+You can find a glossary with an explanation of these features [in this blog post](https://focalplane.biologists.com/2023/05/03/feature-extraction-in-napari/)
 Some of the guanine crystals are not correctly segmented because of overlay or interference patterns. This problem is addressed with the help of a classification step demonstrated next
 
 ### 4. Classify Objects
 
 You can divide the crystal labels into predicted (blue) and discarded (brown) crystal labels using `Classify Objects`. There you can choose classifiers trained on intensity-, shape- and/or size-based parameters with the help of the checkboxes.
 ![](img/plugin/classifyobjects.png)
+For the training of the model, an [APOC](https://github.com/haesleinhuepf/apoc) object classifier was used.
 It is recommended to later on not measure the parameters that the classifier was trained on, but other ones.
 
 ### 5. Bad Label Exclusion
@@ -82,6 +91,7 @@ The result is a label image with only the predicted (blue) labels which are rela
 
 You can also do all the explained steps in one click using the `Analyze Deluxe` function.
 ![](img/plugin/analyzedeluxe.png)
+
 
 ## Installation
 
